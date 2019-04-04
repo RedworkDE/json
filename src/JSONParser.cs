@@ -173,6 +173,12 @@ namespace TinyJson
             {
                 return null;
             }
+
+            if (type == typeof(Uri))
+            {
+                string strVal = (string)ParseValue(typeof(string), json);
+                return new Uri(strVal);
+            }
             if (type.IsEnum)
             {
                 if (json[0] == '"')

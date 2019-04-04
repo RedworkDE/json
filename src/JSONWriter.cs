@@ -63,6 +63,10 @@ namespace TinyJson
             {
                 stringBuilder.Append(((bool)item) ? "true" : "false");
             }
+            else if (type == typeof(Uri))
+            {
+                AppendValue(stringBuilder, ((Uri)item).ToString());
+            }
             else if (type.IsEnum)
             {
                 stringBuilder.Append('"');
